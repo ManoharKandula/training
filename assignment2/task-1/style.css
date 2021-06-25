@@ -1,0 +1,67 @@
+body{
+    background-color: rgb(38, 43, 43);
+}
+.container {
+    background-color: rgba(79, 88, 97, 0.247);
+    width: 400px;
+    height: 500px;
+    padding: 10px;
+    text-align: center;
+    border: 1px solid rgb(8, 8, 7);
+    border-top: 20px solid goldenrod;
+    border-bottom: 20px solid goldenrod;
+    margin: auto;
+    margin-top: 20px;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+.keywords-list{
+    width: 400px;
+    margin: auto;
+    margin-top: 30px;
+    padding-left: 50px;
+}
+
+.keyword , .frequency, .del {
+    color: whitesmoke;
+    text-align: center;
+    margin: 0px 0px 4px 15px;
+    float: left;
+    height: 30px;
+    width: 180px;
+    border: 1px solid;
+    padding-top: 8px;
+    font-size: 20px;
+}
+.keyword {
+    border-left: 15px solid rgb(173, 74, 74);
+}
+.frequency {
+    width: 70px;
+    margin: 0px;
+}
+
+.inputKeyword, .btnSubmit{
+    padding: 10px;
+    margin: 0px;
+}
+
+.btnSubmit{
+    background-color: green;
+    color: white;
+    width: 80px;
+}
+ h2 {
+     color: white;
+ }
+
+ .del {
+    width: 20px;
+    border: 0px;
+    color: red;
+    background-color: inherit;
+ }
+
+.del:hover {
+    color: white;
+}
