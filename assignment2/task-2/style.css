@@ -2,6 +2,9 @@ body {
     margin: 0px;
     padding: 0px;
 }
+.dataHeader {
+    padding-top: 100px;
+}
 .container
 {
     margin: 0px;
@@ -9,7 +12,6 @@ body {
     width: auto;
     height: auto;
     overflow-y: auto;
-    padding-top: 100px;
 }
 .row > div {
     display: inline-block;
@@ -53,6 +55,13 @@ h2 {
     background-color: inherit;
 }
 
+.popup label {
+    color: white;
+    display: block;
+    text-align: left;
+    padding: 0px 0px 5px 50px;
+}
+
 .popup .content {
     position: absolute;
     top: 50%;
@@ -65,8 +74,7 @@ h2 {
     padding: 20px;
     border-radius: 20px;
     background: #262626;
-    box-shadow: 38px 38px 56px #1e1e1e,
-                -25px -25px 38px #1e1e1e;
+   
     z-index: 1;
 }
 
@@ -86,15 +94,13 @@ h2 {
 }
    
 .input-field .validate {
-   padding: 20px;
+   padding: 10px;
    font-size: 16px;
    border-radius: 10px;
    border: none;
    margin-bottom: 15px;
    color: #bfc0c0;
-   background: #262626;
-   box-shadow: inset 5px 5px 5px #232323, 
-               inset -5px -5px 5px #292929;
+   background: #5c5a5a;
    outline: none;
 }
    
