@@ -5,6 +5,27 @@ const row = document.querySelector('.row');
 const btnSubmit = document.querySelector('.btnSubmit');
 
 
+const arr = [];
+
+const displayData = function () {
+    container.innerHTML="";
+    arr.forEach(function (ele, i) {
+        const bgcolor = i % 2 == 0 ? "#C8C8C8" : "white";
+        const html = `
+            <div class="row" style="background-color:${bgcolor}">
+                <div class="id">${ele.albumId}</div>
+                <div class="title">${ele.title}</div>
+                <div class="url">${ele.url}</div>
+                <div class="thumbnail">${ele.thumbnailUrl}</div>
+                <div class="del">
+                <button id="btndel" onClick="delElement(${ele.albumId})" type="button"><h2>X</h2></button>
+                </div>
+            </div>
+        `;
+
+        container.insertAdjacentHTML("beforeend", html);
+    });
+}
 
 const getData = function(){
     fetch('https://jsonplaceholder.typicode.com/photos?albumId=1')
@@ -12,26 +33,13 @@ const getData = function(){
         .then(data => {
             console.log(data[0]);
 
-            data.forEach(function (ele, i) {
-                const bgcolor = i % 2 == 0 ? "#C8C8C8" : "white";
-                const html = `
-                    <div class="row" style="background-color:${bgcolor}">
-                        <div class="id">${ele.id}</div>
-                        <div class="title">${ele.title}</div>
-                        <div class="url">${ele.url}</div>
-                        <div class="thumbnail">${ele.thumbnailUrl}</div>
-                        <div class="del">
-                        <button id="btndel" onClick="delElement(${ele.id})" type="button"><h2>X</h2></button>
-                        </div>
-                    </div>
-                `;
-
-                container.insertAdjacentHTML("beforeend", html);
+            data.forEach(function(ele,i){
+                ele.albumId=(i+1).toString();
+                arr.push(ele);
             });
-            
+            displayData();
         });
 }
-
 getData();
 
 const addElement = function (ele) {
@@ -53,10 +61,21 @@ const addElement = function (ele) {
     })
     .then(data => console.log(data));
    
+    arr.push(ele);
+    displayData();
 }
 
 const delElement = function (num) {
-    fetch(`https://jsonplaceholder.typicode.com/photos/${num}`, {
+    for(let i=0; i<arr.length; i++)
+    {
+        if(arr[i].albumId == num.toString())
+        {
+            arr.splice(i,1);
+            break;
+        }
+    }
+    displayData();
+    fetch(`https://jsonplaceholder.typicode.com/photos/${num+1}`, {
         method: 'DELETE',
     })
     .then(res => {
